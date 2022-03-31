@@ -1,20 +1,48 @@
-﻿// List_Abstract_Data_Type.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+﻿#include <iostream>
+#include <chrono>
 
-#include <iostream>
+using namespace std;
 
-int main()
+
+
+struct ArryList
 {
-    std::cout << "Hello World!\n";
+	int* bas;
+	void olustur();
+	void ekle(int, int);
+	void guncelle(int, int);
+	void sil(int);
+	void yazdir();
+	void bosalt();
+	int sayac;
+};
+
+int main() {
+
+	int iteration = 1000; //bu bizi dizilere vereceğimiz index
+
+	ArryList* arryList = new ArryList();
+	//arryList->olustur();
+
+	for (int i = 0; i < iteration; i++)
+	{
+		//	arryList->ekle(i, i);
+	}
+
+	auto begin2 = std::chrono::high_resolution_clock::now();
+
+	//arryList->ekle(10, 500);
+
+	auto end2 = std::chrono::high_resolution_clock::now();
+
+	auto elapsed = std::chrono::duration_cast<std::chrono::microseconds>(end2 - begin2);//süreyi alıyoruz
+
+	cout << "Baglantili liste ile gerceklemede araya ekleme suresi =>" << elapsed.count() << "mikro - saniye" << endl;
+
+
+	return 0;
 }
+/* tanımlı olmayan fonksiyonları kullandıgında exe bulunamadı hatası veriyor
+*
+*/
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
